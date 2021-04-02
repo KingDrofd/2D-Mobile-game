@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour
 {
     //Variables
-    
+    public int maxLives = 1;
+    private int curLives;
     public Vector3 touchPosition;
     public Vector3 moveDirection;
 
@@ -19,6 +20,7 @@ public class CharacterController : MonoBehaviour
 
     private void Start()
     {
+        curLives = maxLives;
         ship = GetComponent<Rigidbody2D>();
     }
 
@@ -28,7 +30,14 @@ public class CharacterController : MonoBehaviour
     {
         Move();
     }
-
+    public void DamagePlayer(int damage)
+    {
+        curLives -= damage;
+        if (curLives <= 0)
+        {
+            GameMaster.KillPlayer(this);
+        }
+    }
     private void Move()
     {
         if (Input.touchCount > 0)
