@@ -8,18 +8,20 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 20f;
     protected Rigidbody2D enemyRb;
     Vector2 moveDirection;
-    public int enemyHp = 1;
+    public int enemyHp;
     public int dmg = 1;
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
         
         enemyRb.velocity = -transform.up * moveSpeed;
+
+        Destroy(gameObject, 15);
     }
 
     public void DamageEnemy(int Damage)
     {
-        enemyHp -= enemyHp;
+        enemyHp -= Damage;
         if(enemyHp <= 0)
         {
             GameMaster.KillEnemy(this);

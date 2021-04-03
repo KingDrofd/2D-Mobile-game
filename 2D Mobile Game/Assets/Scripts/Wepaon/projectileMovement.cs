@@ -5,7 +5,7 @@ using UnityEngine;
 public class projectileMovement : MonoBehaviour
 {
     public Rigidbody2D projectileRb;
-  
+    public int Damage;
 
     public float projectileSpeed = 10f;
     void Start()
@@ -21,7 +21,7 @@ public class projectileMovement : MonoBehaviour
         EnemyController enemy = collision.collider.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            enemy.DamageEnemy(1);
+            enemy.DamageEnemy(Damage);
         }
         
     }

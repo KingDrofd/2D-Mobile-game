@@ -10,9 +10,10 @@ public class WaveSpwaner : MonoBehaviour
     public class wave
     {
         public string WaveName;
-        public Transform enemy;
+        public Transform[] enemy;
         public int count;
         public float SpawnRate;
+        public Transform[] SpawnPoints;
     }
     private SpawnState state = SpawnState.Counting;
     public wave[] waves;
@@ -21,7 +22,7 @@ public class WaveSpwaner : MonoBehaviour
     public float TimeBetweenWaves = 5f;
     public float WaveCountDown;
     private float SearchCountDown = 1f;
-    public Transform[] SpawnPoints;
+   
     bool EnemyIsAlive()
     {
         SearchCountDown -= Time.deltaTime;
@@ -35,13 +36,15 @@ public class WaveSpwaner : MonoBehaviour
         }
         return true;
     }
-    void SpawnEnemy(Transform Enemy)
+    void SpawnEnemy(Transform[] Enemy, Transform[] randSpawn)
     {
-        Debug.LogWarning("Spawning: " + Enemy.name);
-        for (int i = 0; i < SpawnPoints.Length ; i++)
+        //
+        for (int i = 0; i < randSpawn.Length ; i++)
         {
-            Transform spawnPoints = SpawnPoints[i];
-            Instantiate(Enemy, spawnPoints.position, spawnPoints.rotation);
+            Transform spawnPoints = randSpawn[i];
+            int randEnemy = Random.Range(0, Enemy.Length);
+            Debug.LogWarning("Spawning: " + Enemy[randEnemy].name);
+            Instantiate(Enemy[randEnemy], spawnPoints.position, spawnPoints.rotation);
         }
      
         
@@ -53,7 +56,7 @@ public class WaveSpwaner : MonoBehaviour
         state = SpawnState.Spawning;
         for(int i = 0; i< Wave.count; i++)
         {
-            SpawnEnemy(Wave.enemy);
+            SpawnEnemy(Wave.enemy, Wave.SpawnPoints);
             yield return new WaitForSeconds(1f / Wave.SpawnRate);
         }
         state = SpawnState.Waiting;
@@ -80,10 +83,11 @@ public class WaveSpwaner : MonoBehaviour
     
    private void Start()
     {
-        if (SpawnPoints.Length == 0)
+       /* wave spawn = new wave();
+        if (spawn.SpawnPoints.Length == 0)
         {
             Debug.LogError("Error!: No SpawnPoints");
-        }
+        }*/
         WaveCountDown = TimeBetweenWaves;
     }
 

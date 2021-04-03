@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileRb: {fileID: -4516569833837005572}
+  Damage: 1
   projectileSpeed: 10
 --- !u!61 &1639147330853068602
 BoxCollider2D:
@@ -133,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0014742501, y: 0}
+  m_Offset: {x: -0.0034720302, y: -0.007356733}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -144,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20220384, y: 0.5}
+  m_Size: {x: 0.15556544, y: 0.48528653}
   m_EdgeRadius: 0
