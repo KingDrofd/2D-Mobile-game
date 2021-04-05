@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
     {
         GameObject newProjectile = Instantiate(projectilPrefab, firePoint.position, firePoint.rotation);
         
-        StartCoroutine(RemoveAfterSeconds(6, newProjectile));
+        StartCoroutine(RemoveAfterSeconds(0.8f, newProjectile));
     }
     
 
@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour {
         }
            
     }
-    IEnumerator RemoveAfterSeconds(int seconds, GameObject projectile)
+    IEnumerator RemoveAfterSeconds(float seconds, GameObject projectile)
     {
         yield return new WaitForSeconds(seconds);
         Object.Destroy(projectile);

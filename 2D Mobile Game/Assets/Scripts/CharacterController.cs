@@ -9,19 +9,22 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour
 {
     //Variables
+
+
     public int maxLives = 1;
-    private int curLives;
+    public static int curLives;
     public Vector3 touchPosition;
     public Vector3 moveDirection;
-
+   
    public float moveSpeed = 20f;
 
     public Rigidbody2D ship;
 
-    private void Start()
+   void Start()
     {
         curLives = maxLives;
         ship = GetComponent<Rigidbody2D>();
+
     }
 
 
@@ -33,6 +36,7 @@ public class CharacterController : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         curLives -= damage;
+        Score.livesValue -= 1;
         if (curLives <= 0)
         {
             GameMaster.KillPlayer(this);
@@ -54,4 +58,5 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
+   
 }
