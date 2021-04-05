@@ -804,6 +804,51 @@ MonoBehaviour:
     - {fileID: 472095952}
     - {fileID: 1899532083}
     - {fileID: 1562756271}
+  - WaveName: Fourth
+    enemy:
+    - {fileID: 3936993876774179901, guid: ce7116e26ae2e29498bcaea9e3eeb52f, type: 3}
+    - {fileID: 3936993876774179901, guid: cd30e57326ebb7148a14d2a768dfaf87, type: 3}
+    count: 1
+    SpawnRate: 1
+    SpawnPoints:
+    - {fileID: 397055675}
+    - {fileID: 1545473928}
+    - {fileID: 898974251}
+    - {fileID: 503742256}
+    - {fileID: 1246621348}
+    - {fileID: 1535960416}
+    - {fileID: 918141722}
+    - {fileID: 1339318220}
+    - {fileID: 1772308770}
+    - {fileID: 915756175}
+    - {fileID: 657311724}
+    - {fileID: 625348181}
+    - {fileID: 1166710851}
+    - {fileID: 319494013}
+    - {fileID: 1607848799}
+    - {fileID: 727655272}
+  - WaveName: Fith
+    enemy:
+    - {fileID: 3936993876774179901, guid: cd30e57326ebb7148a14d2a768dfaf87, type: 3}
+    count: 1
+    SpawnRate: 1
+    SpawnPoints:
+    - {fileID: 397055675}
+    - {fileID: 1545473928}
+    - {fileID: 898974251}
+    - {fileID: 503742256}
+    - {fileID: 1246621348}
+    - {fileID: 1535960416}
+    - {fileID: 918141722}
+    - {fileID: 1339318220}
+    - {fileID: 1772308770}
+    - {fileID: 915756175}
+    - {fileID: 657311724}
+    - {fileID: 625348181}
+    - {fileID: 1166710851}
+    - {fileID: 319494013}
+    - {fileID: 1607848799}
+    - {fileID: 727655272}
   TimeBetweenWaves: 3
   WaveCountDown: 3
 --- !u!114 &191764933
