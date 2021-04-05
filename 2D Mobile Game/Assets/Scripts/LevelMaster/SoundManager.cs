@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
         {
             FindObjectOfType<SoundManager>().Play("MenuMusic");
         }
+        Play("in Game");
     }
     public Sound[] sounds;
     void Awake()

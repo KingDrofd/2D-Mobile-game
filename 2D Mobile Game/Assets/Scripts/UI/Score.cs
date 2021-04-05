@@ -8,11 +8,7 @@ public class Score : MonoBehaviour
 
     public TextMeshProUGUI livesNo;
     public TextMeshProUGUI scoreNo;
-    void Start()
-    {
-        //scoreNo = GetComponent<TextMeshProUGUI>();
-        //
-    }
+   
 
 
     void Update()

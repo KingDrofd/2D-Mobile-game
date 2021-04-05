@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
         
         enemyRb.velocity = -transform.up * moveSpeed;
 
-        Destroy(gameObject, 15);
+        Destroy(gameObject, 10);
     }
 
     public void DamageEnemy(int Damage)
