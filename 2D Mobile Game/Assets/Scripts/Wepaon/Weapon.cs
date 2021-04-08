@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
     {
         GameObject newProjectile = Instantiate(projectilPrefab, firePoint.position, firePoint.rotation);
         
-        StartCoroutine(RemoveAfterSeconds(0.8f, newProjectile));
+        StartCoroutine(RemoveAfterSeconds(1f, newProjectile));
     }
     
 

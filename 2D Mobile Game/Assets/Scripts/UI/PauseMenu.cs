@@ -3,20 +3,28 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    
+    [HideInInspector]
+    SoundManager sound;
+
     public GameObject PauseMenuUI;
     
     public static bool isPaused = false;
-
+    private void Start()
+    {
+        sound = FindObjectOfType<SoundManager>();
+    }
     public void Resume()
     {
+        
+        
         Cursor.visible = false;
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
-    void Pause()
+    public void Pause()
     {
+        sound.Stop("In Game");
         Cursor.visible = true;
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0;
@@ -30,8 +38,8 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
         Score.scoreValue = 0;
-        isPaused = false;
         gameObject.SetActive(false);
+        isPaused = false;
     }
     void Update()
     {

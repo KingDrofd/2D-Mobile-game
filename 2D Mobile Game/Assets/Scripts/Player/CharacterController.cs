@@ -52,6 +52,7 @@ public class CharacterController : MonoBehaviour
         {
             Score.livesValue = 0;
             GameMaster.KillPlayer(this);
+            
             GameOver();
         }
     }
@@ -60,11 +61,12 @@ public class CharacterController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition = Camera.main.ScreenToWorldPoint (touch.position);
             touchPosition.z = 0;
             touchPosition.y = 0;
-            moveDirection = (touchPosition - transform.position);
-            ship.velocity = new Vector2(moveDirection.x, 0) * moveSpeed;
+          
+            moveDirection = touchPosition - transform.position;
+            ship.velocity = new Vector2(moveDirection.x / 2, moveDirection.y / 2) * moveSpeed;
             if (touch.phase == TouchPhase.Ended)
             {
                 ship.velocity = Vector2.zero;

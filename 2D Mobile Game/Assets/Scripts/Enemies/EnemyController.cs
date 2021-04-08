@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
         if(enemyHp <= 0)
         {
             GameMaster.KillEnemy(this);
+            
             Score.scoreValue += ScoreValue;
         }
     }
@@ -34,6 +35,7 @@ public class EnemyController : MonoBehaviour
         CharacterController player = collision.collider.GetComponent<CharacterController>();
         if (player != null)
         {
+            
             Destroy(this.gameObject);
             player.DamagePlayer(1);
             if (player.maxLives == 0)

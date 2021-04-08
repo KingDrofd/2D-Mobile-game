@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster GM;
+    [HideInInspector]
+    public static SoundManager sound;
 
     private void Awake()
     {
@@ -16,17 +16,27 @@ public class GameMaster : MonoBehaviour
 
         
     }
-   
-    
+    private void Start()
+    {
+        sound = FindObjectOfType<SoundManager>();
+        sound.Stop("Menu");
+        sound.Play("In Game");
+        
+    }
+
     public static void KillPlayer(CharacterController Player)
     {
+        sound.Play("Death");
         Destroy(Player.gameObject);
     }
 
     
     public static void KillEnemy(EnemyController Enemy)
     {
+        sound.Play("Death");
         Destroy(Enemy.gameObject);
+       
+
     }
     public static bool CanPause()
     {

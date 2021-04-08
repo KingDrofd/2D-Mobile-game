@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     private void Start()
     {
         if (this != null)
         {
-            FindObjectOfType<SoundManager>().Play("MenuMusic");
+           // FindObjectOfType<SoundManager>().Play("MenuMusic");
         }
-        Play("in Game");
+        
     }
     public Sound[] sounds;
+
+
     void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -34,7 +45,16 @@ public class SoundManager : MonoBehaviour
         if (s == null)
             return;
         s.source.Play();
+        Debug.Log("Playing: " + name);
+    }
 
+    public void Pitch (string name, float pitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+            return;
+        s.source.pitch = pitch;
+        Debug.Log("Pitch: " + pitch);
     }
     public void Stop(string name)
     {
@@ -43,7 +63,7 @@ public class SoundManager : MonoBehaviour
         if (s == null)
             return;
         s.source.Stop();
-
+        Debug.Log("Stopped: " + name);
     }
 
 

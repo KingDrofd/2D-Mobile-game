@@ -10,9 +10,9 @@ public class GameOverScreen : MonoBehaviour
     {
         
         Cursor.visible = true;
-        FindObjectOfType<SoundManager>().Stop("in Game");
-        Time.timeScale = 0;
         
+        Time.timeScale = 0;
+        FindObjectOfType<SoundManager>().Stop("In Game");
         gameObject.SetActive(true);
         isGOverScreen = true;
     }
@@ -23,7 +23,9 @@ public class GameOverScreen : MonoBehaviour
  
     public void MainMenu()
     {
+        
         SceneManager.LoadScene("Main Menu");
+        
         Score.scoreValue = 0;
         isGOverScreen = false;
         gameObject.SetActive(false);
